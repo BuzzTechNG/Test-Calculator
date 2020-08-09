@@ -7,14 +7,16 @@ class App extends Component {
     number1: 0,
     number2: 0,
   };
-  inputHandler(event) {
+
+  inputHandler = (event) => {
     const { name, value } = event.target;
     this.setState({
       [name]: value,
     });
-  }
+  };
+
   render() {
-    let addedValue = this.state.number1 + this.state.number2;
+    let addedValue = +this.state.number1 + +this.state.number2;
     return (
       <div>
         <input
@@ -29,7 +31,7 @@ class App extends Component {
           value={this.state.number2}
           onChange={this.inputHandler}
         />
-        <p>The addition is{addedValue}</p>
+        <p>The addition is {addedValue}</p>
       </div>
     );
   }
