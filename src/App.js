@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { component, Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    number1: 0,
+    number2: 0,
+  };
+  inputHandler(event) {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value,
+    });
+  }
+  render() {
+    let addedValue = this.state.number1 + this.state.number2;
+    return (
+      <div>
+        <input
+          type="number"
+          name="number1"
+          value={this.state.number1}
+          onChange={this.inputHandler}
+        />
+        <input
+          type="number"
+          name="number2"
+          value={this.state.number2}
+          onChange={this.inputHandler}
+        />
+        <p>The addition is{addedValue}</p>
+      </div>
+    );
+  }
 }
 
 export default App;
