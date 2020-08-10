@@ -1,0 +1,12 @@
+.input input {
+    width: 20%;
+    height: 30px;
+    font-size: larger;
+    margin: 10px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.input {
+    text-align: center;
+}
